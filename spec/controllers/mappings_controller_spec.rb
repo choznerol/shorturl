@@ -56,5 +56,13 @@ RSpec.describe MappingsController, type: :controller do
         expect(response).to redirect_to 'https://github.com'
       end
     end
+
+    context 'with invalid params' do
+      it "returns a success response (i.e. to display the 'new' template)" do
+        expect {
+          get :redirect_to_target, params: { key: 'NO_SUCH_KEY' }
+        }.to raise_error(ActionController::RoutingError)
+      end
+    end
   end
 end

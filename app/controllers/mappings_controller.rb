@@ -27,7 +27,7 @@ class MappingsController < ApplicationController
 
   # GET /:key
   def redirect_to_target
-    @mapping = Mapping.find_by_key(params[:key])
+    @mapping = Mapping.find_by_key(params[:key]) or render_404
 
     redirect_to @mapping.target_url
   end
