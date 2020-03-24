@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  db:
+    image: circleci/postgres:10-alpine
+    ports:
+      - 5432:5432
