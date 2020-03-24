@@ -12,4 +12,20 @@ class Mapping < ApplicationRecord
   # ref: https://github.com/trptcolin/consistency_fail#description
   validates_uniqueness_of :key
   validates :key, presence: true, length: { minimum: 2, maximum: 10 }
+
+  before_validation :set_key
+
+  # Could replace implementation
+  def self.next_key
+    next_id = (Mapping.maximum(:id)&.next || 0)
+    (next_id + 16).to_s(16)
+  end
+
+  private
+
+  def set_key
+    return unless new_record?
+
+    self.key = Mapping.next_key
+  end
 end

@@ -30,6 +30,8 @@ RSpec.describe Mapping, type: :model do
 
     describe 'key' do
       describe 'validates length' do
+        subject { Mapping.create!(key: 'aa', target_url: 'https://google.com') }
+
         context 'too short' do
           before { subject.key = 'a' }
 
@@ -48,6 +50,27 @@ RSpec.describe Mapping, type: :model do
           end
         end
       end
+    end
+  end
+
+  describe 'ActiveRecord LifeCycle hook' do
+    describe ':set_key' do
+      subject { Mapping.create!(target_url: 'https://foo.com') }
+
+      it 'sets :key automatically' do
+        expect(subject.key).to be_a(String)
+        expect(subject.key.length >= 2).to eq true
+      end
+    end
+  end
+
+  describe '::next_key' do
+    it 'will change if new Mapping added' do
+      next_key = Mapping.next_key
+      Mapping.create!(key: 'foobar', target_url: 'https://gitlab.com')
+      next_next_key = Mapping.next_key
+
+      expect(next_key).not_to eq(next_next_key)
     end
   end
 end
