@@ -25,6 +25,13 @@ class MappingsController < ApplicationController
     end
   end
 
+  # GET /:key
+  def redirect_to_target
+    @mapping = Mapping.find_by_key(params[:key])
+
+    redirect_to @mapping.target_url
+  end
+
   private
 
   def set_mapping

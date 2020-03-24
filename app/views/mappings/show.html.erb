@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Key:</strong>
-  <%= @mapping.key %>
+  <strong>Shorten URL:</strong>
+  <% url = redirect_key_to_target_url(@mapping.key) %>
+  <%= link_to url, url %>
 </p>
 
 <p>

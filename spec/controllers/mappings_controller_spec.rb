@@ -41,4 +41,20 @@ RSpec.describe MappingsController, type: :controller do
       end
     end
   end
+
+  describe 'GET #redirect_to_target' do
+    before do
+      post :create, params: { mapping: valid_attributes } # Create a Mapping
+    end
+
+    context 'with valid params' do
+      let(:mapping) { Mapping.last }
+
+      it 'redirects to correct target_url' do
+        get :redirect_to_target, params: { key: mapping.key }
+
+        expect(response).to redirect_to 'https://github.com'
+      end
+    end
+  end
 end
