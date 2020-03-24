@@ -12,6 +12,7 @@ development: &default
 test:
   <<: *default
   database: shorturl_test
+  password: postgres
 
 production: &deploy
   encoding: utf8
