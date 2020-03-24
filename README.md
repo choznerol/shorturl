@@ -1,28 +1,27 @@
-# Shorturl
+# shorturl
+
+A simple URL-shorten service
 
 ## Getting Started
 
-After you have cloned this repo, run this setup script to set up your machine
-with the necessary dependencies to run and test this app:
+Ensure you have a ruby version match `.ruby-version`
 
-    % ./bin/setup
+    $ rvenv local # Or equivilent tool
 
-It assumes you have a machine equipped with Ruby, Postgres, etc. If not, set up
-your machine with [this script].
+Run a Postgres locally with:
 
-[this script]: https://github.com/thoughtbot/laptop
+    $ docker-compose up
+
+Run this setup script to install dependencies and set up development/test databases. 
+
+    $ ./bin/setup
+
+Now you can run the tests
+
+    $ ./bin/rspec
 
 After setting up, you can run the application using [Heroku Local]:
 
-    % heroku local
+    % heroku local web
 
 [Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
-
-## Guidelines
-
-Use the following guides for getting things done, programming well, and
-programming in style.
-
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
