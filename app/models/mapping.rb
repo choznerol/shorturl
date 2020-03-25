@@ -23,7 +23,11 @@ class Mapping < ApplicationRecord
   # hexadecimal representation
   def self.next_key
     next_id = (Mapping.maximum(:id)&.next || 0)
-    (next_id + 16).to_s(16)
+
+    # Seed between 0..63 will be single digit in base 62, so we offset by 62 to
+    # avoid this.
+    seed = (next_id + 62).to_s
+    Bases.val(seed).in_base(10).to_base(Bases::B62)
   end
 
   private
