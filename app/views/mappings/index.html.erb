@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<div class="text-center">
+  <%= link_to "Shorten another URL", new_mapping_path, class: "btn btn-primary mb-5" %>
+</div>
+
+<h4>Recent shorten URLs:</h4>
+<table class="table">
   <thead>
     <tr>
-      <th>Key</th>
+      <th>Shorten URL</th>
       <th>Target url</th>
       <th colspan="3"></th>
     </tr>
@@ -12,14 +17,15 @@
   <tbody>
     <% @mappings.each do |mapping| %>
       <tr>
-        <td><%= mapping.key %></td>
+        <td>
+          <% shorten_url = redirect_key_to_target_url(mapping.key) %>
+          <%= link_to shorten_url, shorten_url %>
+        </td>
         <td><%= mapping.target_url %></td>
-        <td><%= link_to 'Show', mapping %></td>
+        <td><%= link_to 'Preview page', mapping %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Mapping', new_mapping_path %>
