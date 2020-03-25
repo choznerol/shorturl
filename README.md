@@ -1,5 +1,7 @@
 # shorturl
 
+![RSpec](https://github.com/choznerol/shorturl/workflows/Ruby/badge.svg?branch=master)
+
 A simple URL-shorten service
 
 ## Getting Started
