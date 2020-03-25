@@ -1,6 +1,6 @@
 <%= form_with(model: mapping, local: true) do |form| %>
   <% if mapping.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-warning" role="alert">
       <h2><%= pluralize(mapping.errors.count, "error") %> prohibited this mapping from being saved:</h2>
 
       <ul>
@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group text-left">
     <%= form.label :target_url %>
-    <%= form.text_field :target_url %>
+    <%= form.text_field :target_url, type: "url", placeholder: "E.g. https://github.com", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Shorten it!", class: "btn btn-primary" %>
   </div>
 <% end %>

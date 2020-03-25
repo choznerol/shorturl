@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <p id="notice" class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
 
 <p>
   <strong>Shorten URL:</strong>
@@ -11,4 +13,4 @@
   <%= @mapping.target_url %>
 </p>
 
-<%= link_to 'Back', mappings_path %>
+<%= link_to 'Back', mappings_path, class: "btn btn-secondary" %>
