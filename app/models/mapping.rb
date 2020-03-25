@@ -15,7 +15,12 @@ class Mapping < ApplicationRecord
 
   before_validation :set_key
 
-  # Could replace implementation
+  # Replaceable logic of calculating next key to use
+
+  # Current implementation:
+  # A hexadecimal representation of (Previous ID + 16)
+  # The purpose of `+ 16` is to ensure there are at least 2 digits in the
+  # hexadecimal representation
   def self.next_key
     next_id = (Mapping.maximum(:id)&.next || 0)
     (next_id + 16).to_s(16)
