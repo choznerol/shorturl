@@ -11,7 +11,9 @@ ruby "2.6.5"
 gem "autoprefixer-rails"
 
 gem "bootsnap", require: false
+gem "bootstrap", '~> 4.4.1'
 gem "honeybadger"
+gem "jquery-rails"
 gem "pg"
 gem "puma"
 gem "rack-canonical-host"
