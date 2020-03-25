@@ -9,7 +9,7 @@ ruby "2.6.5"
 
 
 gem "autoprefixer-rails"
-
+gem 'bases'
 gem "bootsnap", require: false
 gem "bootstrap", '~> 4.4.1'
 gem "honeybadger"
