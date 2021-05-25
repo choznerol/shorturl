@@ -58,8 +58,8 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (9.7.5)
-      execjs
+    autoprefixer-rails (10.2.5.1)
+      execjs (> 0)
     awesome_print (1.8.0)
     bases (1.0.2)
     bindex (0.8.1)
@@ -101,7 +101,7 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
-    execjs (2.7.0)
+    execjs (2.8.1)
     ffi (1.12.2)
     formulaic (0.4.1)
       activesupport
@@ -130,7 +130,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.4)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
